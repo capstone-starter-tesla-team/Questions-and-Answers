@@ -1,19 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Service Name Here</title>
-</head>
-<body>
-  <div id="name-of-the-service"></div>
-  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-  <script src="http://localhost:3000/app.js"></script>
-  <script>
-    ReactDOM.render(
-      React.createElement(NameOfTheService),
-      document.getElementById('name-of-the-service')
-    );
-  </script>
+  <head>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!DOCTYPE html>
+    <html>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    #questions {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 12px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+    
+    #question {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    #question li a {
+      border: 1px solid #ddd;
+      margin-top: -1px; /* Prevent double borders */
+      background-color: #f6f6f6;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block
+    }
+    
+    #question li a:hover:not(.header) {
+      background-color: #eee;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <h2>Questions & answers</h2>
+    
+    <input type="text" id="questions" onkeyup="myFunction()" placeholder="HAVE A QUESTION?SEARCH FOR ANSWERS .." title="Ask a question">
+    
+    <ul id="question">
+      <li><a href="#">Why is this product cheaper here than other sites?</a></li>
+      <li><a href="#">How long does it last?</a></li>
+    
+      <li><a href="#">how are you ?</a></li>
+      <li><a href="#">what's new ?</a></li>
+    
+      <li><a href="#">what should i wear ?</a></li>
+      <li><a href="#">is there anyone to help me ?</a></li>
+      <li><a href="#">what's the name of this stylist ? </a></li>
+    </ul>
+    
+    <script>
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("questions");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("question");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+      <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+      <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+      <script src="http://localhost:3000/app.js"></script>
+      <script>
+        ReactDOM.render(
+          React.createElement(ListQuestions),
+          document.getElementById('list-of-questions')
+        );
+      </script>
+    </body>
+    </html>
+
 </body>
 </html>

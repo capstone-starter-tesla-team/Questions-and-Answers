@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class NameOfTheService extends React.Component {
+export default class ListQuestions extends React.Component {
   constructor() {
     super();
 
@@ -8,13 +8,13 @@ export default class NameOfTheService extends React.Component {
   }
 
   componentDidMount() {
-    console.log('service mounted')
+   
   }
 
   render() {
     return (
       <div>
-        <h1>Hello Service 1</h1>
+        <h1>list of questions</h1>
       </div>
     );
   }

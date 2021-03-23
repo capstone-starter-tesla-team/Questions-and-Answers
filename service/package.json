@@ -5,10 +5,10 @@
   "main": "server/index.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack",
+    "build": "webpack --w",
     "start": "nodemon ./server/index.js"
   },
-  "author": "RBK Tunisia",
+  "author": "gaston",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.26.0",

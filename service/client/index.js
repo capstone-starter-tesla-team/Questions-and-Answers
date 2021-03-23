@@ -1,3 +1,3 @@
-import NameOfTheService from './components/NameOfTheService.jsx';
+import ListQuestions from './components/ListQuestions.jsx';
 
-window.NameOfTheService = NameOfTheService;
+window.ListQuestions= ListQuestions;
