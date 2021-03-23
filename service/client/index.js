@@ -1,3 +1,5 @@
-import ListQuestions from './components/ListQuestions.jsx';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/QuestionsList.jsx'
 
-window.ListQuestions= ListQuestions;
+ReactDOM.render(<App />, document.getElementById('app'));
