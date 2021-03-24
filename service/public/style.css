@@ -67,5 +67,9 @@ background: #f1f1f1;
     background-color: #eee;
   }
 
+  .image-container {
+    display: flex;
+    float: left;
+  }
 
 

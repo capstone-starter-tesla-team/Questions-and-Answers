@@ -8,7 +8,8 @@ class QuestionsList extends React.Component {
     this.state = {
      
       value :'', 
-      toggle : false
+      toggle : false,
+      data : []
     }
    this.myFunction=this.myFunction.bind(this)
    this.handleInputChange=this.handleInputChange.bind(this)
@@ -25,9 +26,12 @@ class QuestionsList extends React.Component {
             }
       )
       .then((response) => {
-        console.log(response)
-          var response = response.data;
+        console.log(response.data.results)
+        
+          var response = response.data.results;
+          this.setState ({data : response})
         },
+
         (error) => {
           var status = error.response.status
         }
@@ -61,25 +65,31 @@ class QuestionsList extends React.Component {
   
   render() {
    const {toggle}=this.state 
+
+
     return (
       <div>
         <h2>Questions & Answers</h2>
 
-<input type="text" id="questions"  value = {this.state.value}   onChange ={this.handleInputChange} placeholder="HAVE A QUESTION?SEARCH FOR ANSWERS.." title="search"/>
+<input type="text" id="questions"  value = {this.state.value}   onChange ={this.handleInputChange } placeholder="HAVE A QUESTION?SEARCH FOR ANSWERS.." title="search"/>
 <button type="submit"><i className="fa fa-search"></i></button>
 
 {!toggle&&(<ul id="question">
-  <li><a href="#">Q: Why is this product cheaper here than other sites?</a></li>
-  <li><a href="#">Q: How long does it last?</a></li>
+
+{this.state.data.map ((e,i) =>{
+  return (<li key = {i}><a href="#"> {e.question_body}</a></li>)
+  }) } 
+  {/* <li><a href="#">Q: How long does it last?</a></li>
 
   <li><a href="#">Q: What will match with my morphology ?</a></li>
   <li><a href="#">Q: How much this product ?</a></li>
 
   <li><a href="#">Q: Could anyone help me ?</a></li>
-  <li><a href="#">Q: What's the difference between those products ?</a></li>
+  <li><a href="#">Q: What's the difference between those products ?</a></li> */}
   
 </ul>)}
-<p>LOAD MORE ANSWERS</p>
+
+
 
 <button >MORE ANSWERED QUESTIONS </button>
 
