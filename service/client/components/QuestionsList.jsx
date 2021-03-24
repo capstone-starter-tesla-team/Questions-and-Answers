@@ -1,6 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 
-class App extends React.Component {
+class QuestionsList extends React.Component {
   constructor() {
     super();
 
@@ -11,6 +12,27 @@ class App extends React.Component {
     }
    this.myFunction=this.myFunction.bind(this)
    this.handleInputChange=this.handleInputChange.bind(this)
+    }
+
+    componentDidMount (){
+      axios.get(
+        "https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/qa/questions?product_id=11002",
+        {headers: {
+                "Access-Control-Allow-Origin" : "*",
+                "Content-type": "Application/json",
+                "Authorization": `92f5bc49faf83e05e9f4b1b90815c5d7cc5c0fd3`
+                }   
+            }
+      )
+      .then((response) => {
+        console.log(response)
+          var response = response.data;
+        },
+        (error) => {
+          var status = error.response.status
+        }
+      );
+
     }
   
     myFunction() {
@@ -47,18 +69,19 @@ class App extends React.Component {
 <button type="submit"><i className="fa fa-search"></i></button>
 
 {!toggle&&(<ul id="question">
-  <li><a href="#">Why is this product cheaper here than other sites?</a></li>
-  <li><a href="#">How long does it last?</a></li>
+  <li><a href="#">Q: Why is this product cheaper here than other sites?</a></li>
+  <li><a href="#">Q: How long does it last?</a></li>
 
-  <li><a href="#">What will match with my morphology ?</a></li>
-  <li><a href="#">how much this product ?</a></li>
+  <li><a href="#">Q: What will match with my morphology ?</a></li>
+  <li><a href="#">Q: How much this product ?</a></li>
 
-  <li><a href="#">Could anyone help me ?</a></li>
-  <li><a href="#">What's the difference between those products ?</a></li>
+  <li><a href="#">Q: Could anyone help me ?</a></li>
+  <li><a href="#">Q: What's the difference between those products ?</a></li>
   
 </ul>)}
+<p>LOAD MORE ANSWERS</p>
 
-<button>MORE ANSWERED QUESTIONS </button>
+<button >MORE ANSWERED QUESTIONS </button>
 
 
       </div>
@@ -66,5 +89,5 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default QuestionsList;
 
