@@ -1,5 +1,8 @@
 import QuestionsList from './QuestionsList.jsx'
 import SearchBar from './SearchBar.jsx'
+import QuestionsAnswers from './QuestionsAnswers.jsx'
+import Buttons from './Buttons.jsx'
+import Photo from './Image.jsx'
 import axios from "axios"
 class App extends React.Component {
 constructor() {
@@ -15,7 +18,7 @@ componentDidMount() {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-type": "Application/json",
-        "Authorization": `92f5bc49faf83e05e9f4b1b90815c5d7cc5c0fd3`
+        "Authorization": ` e4ab5cdebdf8a3f9422a79a37f8efff1e5ffd687 `
       }
     }
   )
@@ -34,12 +37,18 @@ componentDidMount() {
 }
 
 render() {
+ 
+
   return (
     <div className="app-container">
      
       <div>
         <SearchBar data={this.state.data}/>
         <QuestionsList data={this.state.data}/>
+        <QuestionsAnswers data={this.state.data}/>
+        <Photo data={this.state.data}/>
+        <Buttons data={this.state.data}/>
+        
         
       </div>
     </div>

@@ -4,8 +4,10 @@ export class SearchBar extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            value: '', 
-            toggle: false,
+            value: ''
+            
+            
+        
         }
         this.myFunction=this.myFunction.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -19,7 +21,7 @@ export class SearchBar extends Component {
         for (i = 0; i < li.length; i++) {
           a = li[i].getElementsByTagName("a")[0];
           txtValue = a.textContent || a.innerText;
-          if ((txtValue.toUpperCase()||txtValue.toLowerCase()).indexOf(filter) > -1) {
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
           } else {
             li[i].style.display = "none";
@@ -34,12 +36,14 @@ export class SearchBar extends Component {
         });
       }
     render() {
+       
         return (
-            <div>
+            <div className="mainstyle">
                 <h2>Questions & Answers</h2>
-
-<input type="text" id="questions" value={this.state.value} onChange={this.handleInputChange} placeholder="HAVE A QUESTION?SEARCH FOR ANSWERS.." title="search" />
-<button type="submit"><i className="fa fa-search"></i></button>
+<div className="search-box">
+<input className="search-input" type="search" id="questions" value={this.state.value} onChange={this.handleInputChange} placeholder="HAVE A QUESTION?SEARCH FOR ANSWERS.."  />
+<button className="search-btn"><i className="fas fa-search"></i></button>
+</div>
 
             </div>
         )

@@ -6,7 +6,17 @@ html, body {
     box-sizing: border-box;
   }
 
+  #app{
+    width: 940px;
+    margin: auto;
+    font-family: “adobe-clean”, sans-serif;
+    color:#5C5C5C,
+}
 
+
+  .mainstyle {
+    padding-bottom: 15px !important;
+  }
 
 
 
@@ -23,9 +33,7 @@ html, body {
   }
 
   
-   button:hover {
-    background: #0b7dda;
-  }
+
 
   
   ::after {
@@ -35,14 +43,25 @@ html, body {
   }
 
   
-   input[type=text] {
-padding: 10px;
-font-size: 17px;
-border: 1px solid grey;
-float: left;
+.search-input{
+padding: 15px 45px 15px 15px;
+font-size: 15px;
+border-color: black;
 width: 80%;
-background: #f1f1f1;
+font-family: 'Montserrat', sans-serif;
+transition : all .4s;
 }
+
+.search-btn {
+background-color: transparent;
+font-size:18px ;
+padding : 6px 9px;
+margin-left: -100px;
+border : none ;
+transition: all .4s;
+z-index: 10;
+}
+
 
 
   #question {
@@ -67,9 +86,101 @@ background: #f1f1f1;
     background-color: #eee;
   }
 
-  .image-container {
-    display: flex;
-    float: left;
+  .MoreAnswerdQuestions{
+    padding: 16px 19px;
+    background-color: transparent;
   }
+
+  .AddQuestions{
+    padding: 16px 19px;
+    background-color: transparent;
+        
+  }
+
+  #adding{
+    margin-left: 15px;
+}
+
+  .btn-add{
+    margin-left: 400px;
+    margin-left: 280px;
+    margin-top: -80px;  
+}
+  .ansewer{
+    font-size: 14px;
+    margin-left: 22px;
+    margin-top: -33px;
+    color: #5C5C5C;
+  }
+
+.row {
+  padding-bottom: 10px  !important;
+}
+
+.mainstyle{
+  padding-bottom:15px !important;
+}
+.user{
+  font-size: 14px;
+  margin-left: 22px;
+  margin-top: 20px;
+  color: #5C5C5C;
+  
+}
+
+
+
+.one-Question-Helpful{
+    margin-top: 14px;
+    font-size: 13px;
+    text-align: justify;
+    line-height: 20px;
+    margin-left: 24px;
+}
+
+.one-Question-Helpful-answer{
+      margin-top: -8px;
+    font-size: 13px;
+    text-align: justify;
+    line-height: 20px;
+    margin-left: 24px;
+}
+
+.report-button-one-Question{
+    font-size: 13px;
+    color :#5C5C5C;
+    text-decoration: underline;
+    margin-top: -5px;
+ 
+    
+}
+.Yes-button-one-Question{
+    font-size: 13px;
+    color :#5C5C5C;
+    margin-left: -8px;
+    text-decoration: underline;
+    margin-bottom: 5px;
+
+    
+}
+.Vertical-Line{
+    border-left: 1.4px solid #5C5C5C;
+    height: 50px;
+    margin-bottom: -3px;
+    display: inline-block;
+}
+
+.Count-Helpful-Yes{
+    font-size: 10px;
+    display: inline-block;
+}
+
+.icon {
+  position: relative !important;
+  float: right !important;
+}
+
+
+
 
 
