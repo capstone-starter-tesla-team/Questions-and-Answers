@@ -20,7 +20,7 @@ class QuestionsList extends React.Component {
       <div>
         {/* {!toggle && (<ul id="question">
 
-          {this.props.data.map((e, i) => {
+          {anser.map((e, i) => {
             return (<li key={i}><a href="#"> {e.question_body}</a></li>)
           })}
         </ul>)} */}

@@ -1,12 +1,26 @@
 import QuestionsList from './QuestionsList.jsx'
 import SearchBar from './SearchBar.jsx'
-import QuestionsAnswers from './QuestionsAnswers.jsx'
+import QA from './QA.jsx'
 import Buttons from './Buttons.jsx'
 
 import axios from "axios"
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      
+    }
+  }
 
-
+ 
+               
+            
+            
+       
+        
+   
+  
+  
 
 render() {
 
@@ -17,7 +31,7 @@ render() {
       <div>
         <SearchBar />
         <QuestionsList />
-        <QuestionsAnswers />
+        <QA />
        
         <Buttons />
         

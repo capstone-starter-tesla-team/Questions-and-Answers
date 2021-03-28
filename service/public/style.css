@@ -18,7 +18,9 @@ html, body {
     padding-bottom: 15px !important;
   }
 
-
+.myphoto{
+  display: flex;
+}
 
    button {
     float:inline-start;
@@ -100,7 +102,12 @@ z-index: 10;
   #adding{
     margin-left: 15px;
 }
+.Addanswer{
+  float: right;
+  display: flex;
+  margin-bottom: -35px;
 
+}
   .btn-add{
     margin-left: 400px;
     margin-left: 280px;
@@ -128,81 +135,91 @@ z-index: 10;
   color: #5C5C5C;
   
 }
-
-
-
 .one-Question-Helpful{
-    margin-top: 14px;
-    font-size: 13px;
-    text-align: justify;
-    line-height: 20px;
-    margin-left: 24px;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px; 
 }
 
-.one-Question-Helpful-answer{
-      margin-top: -8px;
-    font-size: 13px;
-    text-align: justify;
-    line-height: 20px;
-    margin-left: 24px;
-}
 
-.report-button-one-Question{
-    font-size: 13px;
-    color :#5C5C5C;
-    text-decoration: underline;
-    margin-top: -5px;
-    padding : 0;
-    border: none;
-    background : none ;
- 
-    
-}
-.Yes-button-one-Question{
-    font-size: 13px;
-    color :#5C5C5C;
-    margin-left: -8px;
-    text-decoration: underline;
-    margin-bottom: 5px;
-    padding : 0;
-    border: none;
-    background : none ;
-    
-
-    
-}
 .Vertical-Line{
     border-left: 1.4px solid #5C5C5C;
     height: 50px;
     margin-bottom: -3px;
     display: inline-block;
 }
-
-.Count-Helpful-Yes{
-    font-size: 10px;
-    display: inline-block;
+.asa{
+margin-right: 20px;
+margin-left: 20px;
 }
+.Count-Helpful-Yes{
+  display: flex;
+  font-size: 10px;
+  margin-right: 10px;
+}
+.yesandreport{
+  margin-left: 20px;
+  display: flex;
 
+}
+.Report2{
+  margin-left:20px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.Yes1{
+  text-decoration: underline;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.Report5{
+  /* margin-left:20px; */
+  text-decoration: underline;
+  cursor: pointer;
+}
+.Yes5{
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+.youcan{
+  margin-top: 20px;
+}
+.mybuttn1{
+  border: 1.3px solid;
+  margin-left: 30px;
+  display: inline-block;
+  width:260px;
+  height:60px;
+  background:white;
+}
+.mybuttn2{
+  border: 1.3px solid;
+  margin-left:50px;
+  width: 200px;
+  height:60px;
+  background:white;
+}
+.im2{
+   margin-right: 10px;
+}
+.im3{
+  width:100px;
+  height:80px;
+  margin-left: 10px;
+  margin-right:10px
+}
+.im4{
+  width:100px;
+  height:80px;
+margin-left: 10px;
+}
 .icon {
   position: relative !important;
   float: right !important;
 }
 
-.ansQ{
-  display:flex;
-}
-
-
-.Count-Helpful-Yes{
-  
-  position :absolute;
-  margin-right: -100px;
-  margin-left:600px;
-  display : inline-block ;
-  font-size: 8px;
-  margin-top: -10px;
-  
-}
 
 
 
