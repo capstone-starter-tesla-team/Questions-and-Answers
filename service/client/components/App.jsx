@@ -1,5 +1,5 @@
 
-import SearchBar from './SearchBar.jsx'
+
 import QA from './QA.jsx'
 import Buttons from './Buttons.jsx'
 
@@ -30,7 +30,7 @@ render() {
     <div className="app-container">
      
       <div>
-        <SearchBar />
+        
         
         <QA />
        
