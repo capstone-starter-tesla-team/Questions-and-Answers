@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Button, Form, TextArea } from 'semantic-ui-react';
-import { Image } from 'semantic-ui-react'
+import { Image ,Button, Form, TextArea } from 'semantic-ui-react';
+
 import moment from 'moment'
 export class QA extends Component {
     constructor(props) {
@@ -18,15 +18,17 @@ export class QA extends Component {
             name: '',
             answer: '',
             email: '',
+            answerss: [],
+            initialAnswers : []
 
         }
-        this.displayAnswers = this.displayAnswers.bind(this)
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-      
         this.filterQ = this.filterQ.bind(this);
 
     }
+
     componentDidMount() {
         axios.get(
             "https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/qa/questions?product_id=11003",
@@ -34,40 +36,40 @@ export class QA extends Component {
                 headers: {
                     "Access-Control-Allow-Origin": "*",
                     "Content-type": "Application/json",
-                    "Authorization": ` ce245480674a8f5bee0533ee0c39f51dff8c30f8 `
+                    "Authorization": ` 27178c4f75971fe5bb8c28371d040851fade23e8  `
                 }
             }
         )
             .then((response) => {
                 let answers = response.data.results.map(e => e.answers)
                 var response = response.data.results;
-                console.log(response)
-
+                let allAnswers = answers.filter(a=>Object.keys(a).length>0).map(e=> Object.values(e).map(i=>i.body))
                 this.setState({
                     data: response,
-                    answers
+                    answers,
+                    answerss: allAnswers,
+                    initialAnswers: allAnswers.slice(0,2)
                 })
-             
             })
     }
     updateYes(id, e) {
 
-        axios.put('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/qa/questions/' + id + '/helpful', {}, {
+        axios.put('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/qa/questions?product_id=11003/helpful', {}, {
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Content-type": "Application/json",
-                "Authorization": ` ce245480674a8f5bee0533ee0c39f51dff8c30f8 `
+                "Authorization": ` 27178c4f75971fe5bb8c28371d040851fade23e8  `
             }
         })
         e.target.disabled = true;
     }
 
     updateRepportAnswers(id, e) {
-        axios.put('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/qa/answers/' + id + '/report', {}, {
+        axios.put('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/qa/answers?product_id=11003/report', {}, {
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Content-type": "Application/json",
-                "Authorization": ` ce245480674a8f5bee0533ee0c39f51dff8c30f8 `
+                "Authorization": ` 27178c4f75971fe5bb8c28371d040851fade23e8  `
             }
         })
         e.target.disabled = true;
@@ -80,20 +82,20 @@ export class QA extends Component {
     }
 
     handleSubmit() {
-        axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/qa/questions', {
+        axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/qa/questions?product_id=11003', {
             body: this.state.body,
             name: this.state.name,
             email: this.state.email,
-            product_id: 11503
+           
         }, {
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Content-type": "Application/json",
-                "Authorization": ` ce245480674a8f5bee0533ee0c39f51dff8c30f8 `
+                "Authorization": ` 27178c4f75971fe5bb8c28371d040851fade23e8  `
             }
         })
             .then(() => {
-                console.log("posted successfully");
+                console.log("posted ");
             })
     }
 
@@ -115,20 +117,15 @@ export class QA extends Component {
    }
 
 
-    displayAnswers(object) {
-        let values = Object.values(object);
-        return values.map(e => <div>{e.body}</div>)
-
-    }
 
     render() {
-
+        const {initialAnswers } = this.state
         const quest = this.state.data.filter((e, i) => i < this.state.num)
-        const answr = this.state.answers.filter((e, i) => i < this.state.ansnum)
+        
         const yes = this.state.answers.helpfulness
+        
         const yes1 = this.state.answers[Object.keys(this.state.answers)[0]]
-
-        console.log('anwsers', this.state.answers)
+        
         return (
             <div className='container'>
                 <div className='row'>
@@ -185,19 +182,19 @@ export class QA extends Component {
 
                         <h3> Q : {e.question_body} </h3>
 
-                         <div  >
-                            <h3>A: {this.state.answers[Object.keys(this.state.answers)[0]].body} </h3>
-                            <h6 className="answer">{this.state.answers[Object.keys(this.state.answers)[0]].body}</h6>
+                     {<div>
+                            <div> <h3>A: {initialAnswers.length>0 ? initialAnswers[i].map(ans=> <h3>{ans}</h3>): null} </h3> </div>
+                          
 
 
-                            <div className='col-8' className='one-Question-Helpful'> {this.state.answers[Object.keys(this.state.answers)[0]].answerer_name} {moment(this.state.answers[Object.keys(this.state.answers)[0]].date).format('LL')} <p className='asa'>|</p>  Helpful ?
+                            <div className='col-8' className='one-Question-Helpful'> {this.state.answerss[Object.keys(this.state.answerss)[0]].answerer_name} {moment(this.state.answerss[Object.keys(this.state.answers)[0]].date).format('LL')} <p className='asa'>|</p>  Helpful ?
 
                               <div className='yesandreport'> <a className="col-4" href='#' className="Yes1" onClick={(e) => { this.updateYes(this.state.data.question_id, e), this.setState({ yesA: this.state.yesA + 1 }) }}>Yes</a><p className='Count-Helpful-Yes'>({this.state.answers[Object.keys(this.state.answers)[0]].helpfulness, this.state.yesA})</p> |<a href='#' className="Report2" onClick={(e) => this.updateRepportAnswers(this.state.answers[Object.keys(this.state.answers)[0]].id, e)}>Report</a></div>
                             </div>
 
 
 
-                        </div>
+                        </div>}
 
                     </div>)}
                  

@@ -1,7 +1,7 @@
 
 
 import QA from './QA.jsx'
-import Buttons from './Buttons.jsx'
+
 
 
 import axios from "axios"
@@ -34,7 +34,7 @@ render() {
         
         <QA />
        
-        <Buttons />
+       
         
         
       </div>
